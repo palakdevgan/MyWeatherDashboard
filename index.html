@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="hero">
+        <h1  class="app-title">Weather Dashboard</h1>
+      </header>
+      <div class="container-fluid">
+          <div class="row">
+        <div class="col-12 col-md-4 col-lg-3">
+        <div class="card">
+          <h3 class="card-header text-uppercase">Search for a City:</h3>
+          <form id="user-form" class="card-body">
+            <input name="username" id="username" type="text" autofocus="true" class="form-input" placeholder="San Diego"/>
+            <button type="submit" class="btn">Search</button>
+          </form>
+        </div>
+        <div>
+            <div id="city-names">
+              <button data-city="" class="btn">Austin</button>
+              <button data-city="" class="btn">Chicago</button>
+              <button data-city="" class="btn">New York</button>
+              <button data-city="" class="btn">Orlando</button>
+              <button data-city="" class="btn">San Francisco</button>
+              <button data-city="" class="btn">Seattle</button>
+              <button data-city="" class="btn">Denver</button>
+              <button data-city="" class="btn">Atlanta</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-8 col-lg-9">
+            <div class="current">
+            <h1>Atlanta (3/30/2021)</h1>
+            <h2>Temp: 74.01&#8457</h2>
+            <h2>Wind: 6.67 MPH</h2>
+            <h2>Humidity: 46%</h2>
+            <h2>UV Index: 0.47</h2>
+        </div>
+        <div class="fiveday">
+            <h1>5- day Forecast</h1>
+            <div class="card">
+                <h3 class="card-header text-uppercase">3/31/2021</h3>
+                <h2>Temp: 74.01&#8457</h2>
+                <h2>Wind: 6.67 MPH</h2>
+                <h2>Humidity: 46%</h2>
+            </div>
+            <div class="card">
+                <h3 class="card-header text-uppercase">3/31/2021</h3>
+                <h2>Temp: 74.01&#8457</h2>
+                <h2>Wind: 6.67 MPH</h2>
+                <h2>Humidity: 46%</h2>
+            </div>
+            <div class="card">
+                <h3 class="card-header text-uppercase">3/31/2021</h3>
+                <h2>Temp: 74.01&#8457</h2>
+                <h2>Wind: 6.67 MPH</h2>
+                <h2>Humidity: 46%</h2>
+            </div>
+            <div class="card">
+                <h3 class="card-header text-uppercase">3/31/2021</h3>
+                <h2>Temp: 74.01&#8457</h2>
+                <h2>Wind: 6.67 MPH</h2>
+                <h2>Humidity: 46%</h2>
+            </div>
+            <div class="card">
+                <h3 class="card-header text-uppercase">3/31/2021</h3>
+                <h2>Temp: 74.01&#8457</h2>
+                <h2>Wind: 6.67 MPH</h2>
+                <h2>Humidity: 46%</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
