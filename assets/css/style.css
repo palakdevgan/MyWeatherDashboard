@@ -31,19 +31,11 @@
     margin: 0;
     color: var(--dark);
     line-height: 1.25;
-    
+    padding: 0.75%;
   }
   
   h2,h3{
     font-size: 16px;
-  }
-  main {
-    margin: 20px auto;
-    width: 94%;
-  }
-  
-  p {
-    font-size: 1.2rem;
   }
   
    .btn {
@@ -54,13 +46,28 @@
     display: block;
     margin: 5px 0;
     border-radius: var(--border-radius);
-    color:black;
+    color:white;
     border: none;
     outline: none;
-    background-color: gray;
+    background-color: #5aa2e9;
     transform: translate(-1px, -1px);
   }
   
+  .btn1 {
+    font-size: 1.3rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    color:black;
+    border: none;
+    outline: none;
+    background-color:#b7b7b7;
+    transform: translate(-1px, -1px);
+  }
+
    .btn:hover {
     color: var(--primary);
     background-color: var(--tertiary);
@@ -70,12 +77,8 @@
   
   .hero {
     padding: 1% 4%;
-    background-color:#264168;
+    background-image: linear-gradient(to right,#3b6dc3,#260d5e);
     color: var(--primary);
-  }
-  
-  .hero p {
-    max-width: 75%;
   }
   
   .app-title {
@@ -86,88 +89,57 @@
     margin:0% 30%;
   }
   
-  .list-group {
-    padding: 0;
-    list-style: none;
-  }
-  
-  .list-item {
-    margin-bottom: 10px;
-    padding: 1.5%;
-    border-radius: var(--border-radius);
-    background-color: var(--light-dark);
-    color: var(--primary);
-    text-decoration: none;
-  }
-  
-  .list-item:hover {
-    background-color: var(--dark);
-  }
-  
-  .status-icon {
-    padding: 2px 5px;
-    margin: 0 5px;
-    background-color: rgba(255,255,255, 1);
-    border-radius: var(--border-radius);
-  }
-  
-  .icon-danger {
-    color: rgb(255, 70, 70);
-  }
-  
-  .icon-success {
-    color: rgb(29, 153, 255);
-  }
-  
-  /* CARDS */
   .card {
-    margin: 0 0 20px 0;
-    border: 3px solid var(--dark);
+    margin: 0 0 20px 0;  
     border-radius: var(--border-radius);
+    border: none;
   }
-  
+
   .card-header {
-    color: var(--primary);
-    background-color: var(--dark);
+    color: black;
     padding: 2.5%;
     border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+    border-bottom: none;
+    background-color: white;
   }
   
 
   .card-body {
     padding: 2.5%;
   }
+
+  .card1 {
+    margin: 0 0 20px 0; 
+    width:160px;
+    height:225px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    background-color: #33475a;
+  }
+  
+  .card-header1 {
+    color: white;
+    padding: 2.5%;
+    background-color:#33475a;
+  }
   
   .current{
-      border: black solid;
-      height: 50%;
-     
+      border: black solid 1px;
+      height: 40%;  
+      justify-content:space-evenly;
   }
 
   .fiveday{
-      height: 50%;
-      border: black solid;
-      
+      height: 60%;    
   }
-  /* FORM */
-  .form-label,
-  .form-input,
-  .form-textarea {
-    display: block;
-  }
-  
-  .form-label {
-    font-size: 1.1rem;
-    margin: 0 0 0 5px;
-  }
-  
+ 
   .form-input {
     width: 100%;
     padding: 3%;
     margin: 5px 0;
     font-size: 1.2rem;
-    border: 2px solid var(--light-dark);
-    border-radius: var(--border-radius);
+    border-radius: .3rem;
   }
   
   
