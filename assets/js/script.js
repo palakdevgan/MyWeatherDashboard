@@ -39,7 +39,7 @@ var day5HumidityEl=document.querySelector("#day5humidity");
 
 var getCoordinates = function(city){
 
-var apiUrl="http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=36cf548e4720f5cb0d8e91c0678423fe";
+var apiUrl="https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=36cf548e4720f5cb0d8e91c0678423fe";
 
 fetch(apiUrl).then(function(response){
     if(response.ok){
@@ -62,8 +62,8 @@ fetch(apiUrl).then(function(response){
                   var today = moment.unix(data.current.dt).format("MM/DD/YYYY");
                   currentH1El.textContent=(city[0].toUpperCase() + city.substring(1))+" ("+today+")";
                   currentImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.current.weather[0].icon+".png");
-                  currentImgEl.setAttribute("style","width=50px;height=50px");
-                  document.querySelector(".currenttitle").setAttribute("style","display:flex");
+                  currentImgEl.setAttribute("style","width:50px;height:50px");
+                  document.querySelector(".currenttitle").setAttribute("style","display:flex;align-items:center");
                   currentTempEl.innerHTML="Temp: "+data.current.temp+"&#8457";
                   currentWindEl.textContent="Wind: "+data.current.wind_speed+" MPH";
                   currentHumidityEl.textContent="Humidity: "+data.current.humidity+" %";
