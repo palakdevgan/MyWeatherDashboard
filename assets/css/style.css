@@ -1,22 +1,12 @@
-:root {
-    --primary: #ccdad1;
-    --secondary: #9caea9;
-    --tertiary: #788585;
-    --light-dark: #6f6866;
-    --dark: #38302e;
-    --border-radius: .3rem;
-  }
-  
   * {
     box-sizing: border-box;
   }
   
   body {
-    
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
-    color: var(--dark);
+    color: black;
     line-height: 1.5;
     font-size: 16px;
   }
@@ -29,7 +19,7 @@
   h6 {
     font-weight: 700;
     margin: 0;
-    color: var(--dark);
+    color: black;
     line-height: 1.25;
     padding: 0.75%;
   }
@@ -45,7 +35,7 @@
     width: 100%;
     display: block;
     margin: 5px 0;
-    border-radius: var(--border-radius);
+    border-radius:.3rem;
     color:white;
     border: none;
     outline: none;
@@ -53,6 +43,12 @@
     transform: translate(-1px, -1px);
   }
   
+  .btn:hover {
+    color: white;
+    background-color: #3b6dc3;
+    transform: translate(0, 0);
+  }
+
   .btn1 {
     font-size: 1.3rem;
     text-decoration:none;
@@ -60,7 +56,7 @@
     width: 100%;
     display: block;
     margin: 5px 0;
-    border-radius: var(--border-radius);
+    border-radius:.3rem;
     color:black;
     border: none;
     outline: none;
@@ -68,9 +64,9 @@
     transform: translate(-1px, -1px);
   }
 
-   .btn:hover {
-    color: var(--primary);
-    background-color: var(--tertiary);
+   .btn1:hover {
+    color:black;
+    background-color: rgb(131, 127, 127);
     transform: translate(0, 0);
   }
   
@@ -78,7 +74,6 @@
   .hero {
     padding: 1% 4%;
     background-image: linear-gradient(to right,#3b6dc3,#260d5e);
-    color: var(--primary);
   }
   
   .app-title {
@@ -91,7 +86,7 @@
   
   .card {
     margin: 0 0 20px 0;  
-    border-radius: var(--border-radius);
+    border-radius: .3rem;
     border: none;
   }
 
