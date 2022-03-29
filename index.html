@@ -38,11 +38,11 @@
         </div>
         <div class="col-12 col-md-8 col-lg-9">
             <div class="current">
-            <h1>Atlanta (3/30/2021) <img src="http://openweathermap.org/img/wn/10d.png" width="50px" height="50px"></h1>
-            <h2>Temp: 74.01&#8457</h2>
-            <h2>Wind: 6.67 MPH</h2>
-            <h2>Humidity: 46%</h2>
-            <h2>UV Index: 0.47</h2>
+            <h1 id="currentcity"><img id="currentimg"/></h1>
+            <h2 id="currenttemp">Temp: 74.01&#8457</h2>
+            <h2 id="currentwind">Wind: 6.67 MPH</h2>
+            <h2 id="currenthumidity">Humidity: 46%</h2>
+            <h2 id="currentuvi">UV Index: 0.47</h2>
         </div>
         <div class="fiveday">
             <h1>5- day Forecast</h1>
@@ -90,6 +90,7 @@
     </div>
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
