@@ -111,7 +111,8 @@
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    background-color: #33475a;
+    background-color: #3b6ec4;
+    /*background-color: #33475a;*/
   }
   
   .card-header1 {

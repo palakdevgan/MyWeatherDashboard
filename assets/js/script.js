@@ -38,6 +38,8 @@ var day5TempEl=document.querySelector("#day5temp");
 var day5WindEl=document.querySelector("#day5wind");
 var day5HumidityEl=document.querySelector("#day5humidity");
 
+var city1El=document.querySelector("#city1");
+
 var getCoordinates = function(city){
 
 var apiUrl="https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=36cf548e4720f5cb0d8e91c0678423fe";
@@ -134,10 +136,14 @@ fetch(apiUrl).then(function(response){
 };
 
 function setCities(array){
+   //var city=document.querySelector("#searchcity");
    var getCities=JSON.parse(localStorage.getItem("cities"));
    if(getCities === null) getCities = [];
     var allCities = getCities.concat(array);
-     localStorage.setItem("cities",JSON.stringify(allCities));
+    var filteredcities=allCities.filter(e => e !== array);
+
+    console.log(filteredcities);
+    localStorage.setItem("cities",JSON.stringify(filteredcities));
 }
 
 var formSubmitHandler = function(event) {
@@ -156,3 +162,5 @@ var formSubmitHandler = function(event) {
 
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
+city1.setAttribute("style","display:block");
+city1.textContent= "Red";
