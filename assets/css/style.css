@@ -62,7 +62,6 @@
     outline: none;
     background-color:#b7b7b7;
     transform: translate(-1px, -1px);
-    display: none;
   }
 
    .btn1:hover {

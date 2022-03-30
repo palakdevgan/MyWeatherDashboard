@@ -38,7 +38,7 @@ var day5TempEl=document.querySelector("#day5temp");
 var day5WindEl=document.querySelector("#day5wind");
 var day5HumidityEl=document.querySelector("#day5humidity");
 
-var city1El=document.querySelector("#city1");
+var citynamesEl=document.querySelector("#city-names");
 
 var getCoordinates = function(city){
 
@@ -47,7 +47,7 @@ var apiUrl="https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=36cf5
 fetch(apiUrl).then(function(response){
     if(response.ok){
         response.json().then(function(data){
-            getWeatherData(data[0].lat,data[0].lon,city);
+            getWeatherData(data[0].lat,data[0].lon,data[0].name,data[0].state,data[0].country);
         });
     }
     else{
@@ -56,14 +56,16 @@ fetch(apiUrl).then(function(response){
 });
 };
 
-var getWeatherData = function(lat,lon,city){
-var apiUrl ="https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=hourly,minutely&units=imperial&appid=36cf548e4720f5cb0d8e91c0678423fe";   
 
+var getWeatherData = function(lat,lon,city,state,country){
+var apiUrl ="https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=hourly,minutely&units=imperial&appid=36cf548e4720f5cb0d8e91c0678423fe";   
+var mycity = city.split(' ').slice(0,2).join(' ');
 fetch(apiUrl).then(function(response){
     if(response.ok){
         response.json().then(function(data){
                   var today = moment.unix(data.current.dt).format("MM/DD/YYYY");
-                  currentH1El.textContent=(city[0].toUpperCase() + city.substring(1))+" ("+today+")";
+                  //currentH1El.textContent=(city[0].toUpperCase() + city.substring(1))+" ("+today+")";
+                  currentH1El.textContent=(mycity+","+state+","+country)+" ("+today+")";
                   currentImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.current.weather[0].icon+".png");
                   currentImgEl.setAttribute("style","width:50px;height:50px");
                   document.querySelector(".currenttitle").setAttribute("style","display:flex;align-items:center");
@@ -86,7 +88,7 @@ fetch(apiUrl).then(function(response){
                   var day1 = moment.unix(data.daily[1].dt).format("MM/DD/YYYY");
                   day1DateEl.textContent=day1;
                   day1ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[1].weather[0].icon+".png");
-                  day1ImgEl.setAttribute("style","width=60px;height=60px");
+                  day1ImgEl.setAttribute("style","width:50px;height:50px");
                   day1TempEl.innerHTML="Temp: "+data.daily[1].temp.day+"&#8457";
                   day1WindEl.textContent="Wind: "+data.daily[1].wind_speed+" MPH";
                   day1HumidityEl.textContent="Humidity: "+data.daily[1].humidity+" %";
@@ -94,7 +96,7 @@ fetch(apiUrl).then(function(response){
                   var day2 = moment.unix(data.daily[2].dt).format("MM/DD/YYYY");
                   day2DateEl.textContent=day2;
                   day2ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[2].weather[0].icon+".png");
-                  day2ImgEl.setAttribute("style","width=60px;height=60px");
+                  day2ImgEl.setAttribute("style","width:50px;height:50px");
                   day2TempEl.innerHTML="Temp: "+data.daily[2].temp.day+"&#8457";
                   day2WindEl.textContent="Wind: "+data.daily[2].wind_speed+" MPH";
                   day2HumidityEl.textContent="Humidity: "+data.daily[2].humidity+" %";
@@ -102,7 +104,7 @@ fetch(apiUrl).then(function(response){
                   var day3 = moment.unix(data.daily[3].dt).format("MM/DD/YYYY");
                   day3DateEl.textContent=day3;
                   day3ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[3].weather[0].icon+".png");
-                  day3ImgEl.setAttribute("style","width=60px;height=60px");
+                  day3ImgEl.setAttribute("style","width:50px;height:50px");
                   day3TempEl.innerHTML="Temp: "+data.daily[3].temp.day+"&#8457";
                   day3WindEl.textContent="Wind: "+data.daily[3].wind_speed+" MPH";
                   day3HumidityEl.textContent="Humidity: "+data.daily[3].humidity+" %";
@@ -110,7 +112,7 @@ fetch(apiUrl).then(function(response){
                   var day4 = moment.unix(data.daily[4].dt).format("MM/DD/YYYY");
                   day4DateEl.textContent=day4;
                   day4ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[4].weather[0].icon+".png");
-                  day4ImgEl.setAttribute("style","width=60px;height=60px");
+                  day4ImgEl.setAttribute("style","width:50px;height:50px");
                   day4TempEl.innerHTML="Temp: "+data.daily[4].temp.day+"&#8457";
                   day4WindEl.textContent="Wind: "+data.daily[4].wind_speed+" MPH";
                   day4HumidityEl.textContent="Humidity: "+data.daily[4].humidity+" %";
@@ -118,7 +120,7 @@ fetch(apiUrl).then(function(response){
                   var day5 = moment.unix(data.daily[5].dt).format("MM/DD/YYYY");
                   day5DateEl.textContent=day5;
                   day5ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[5].weather[0].icon+".png");
-                  day5ImgEl.setAttribute("style","width=60px;height=60px");
+                  day5ImgEl.setAttribute("style","width:50px;height:50px");
                   day5TempEl.innerHTML="Temp: "+data.daily[5].temp.day+"&#8457";
                   day5WindEl.textContent="Wind: "+data.daily[5].wind_speed+" MPH";
                   day5HumidityEl.textContent="Humidity: "+data.daily[5].humidity+" %";
@@ -130,20 +132,18 @@ fetch(apiUrl).then(function(response){
 
         alert("Error");
     }
-    setCities(city);
+    setCities(mycity);
 });
 
 };
 
-function setCities(array){
-   //var city=document.querySelector("#searchcity");
+function setCities(cityName){
    var getCities=JSON.parse(localStorage.getItem("cities"));
    if(getCities === null) getCities = [];
-    var allCities = getCities.concat(array);
-    //var filteredcities=allCities.filter(e => e !== array);
-
-    //console.log(filteredcities);
-    localStorage.setItem("cities",JSON.stringify(allCities));
+   if (!getCities.includes(cityName)){
+       getCities.unshift(cityName);
+   }
+    localStorage.setItem("cities",JSON.stringify(getCities));
 }
 
 var formSubmitHandler = function(event) {
@@ -160,10 +160,26 @@ var formSubmitHandler = function(event) {
     }
   };
 
+  var cityButtonHandler=function(event){
+    var targetEl = event.target;
+
+    if(targetEl.matches(".btn1")){
+     var cityname=targetEl.getAttribute("data-cityname");
+     getCoordinates(cityname);
+    }
+  };
+
+  
+var myCities = localStorage.getItem("cities");
+myCities = JSON.parse(myCities);
+if(myCities === null) myCities = [];
+for (var i = 0; i < myCities.slice(0,8).length; i++) {
+    var myBtn = document.createElement("BUTTON");
+    myBtn.textContent=myCities[i];
+    myBtn.className="btn1";
+    myBtn.setAttribute("data-cityname",myCities[i]);
+    citynamesEl.appendChild(myBtn);
+}
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
-city1.setAttribute("style","display:block");
-var myCities = localStorage.getItem("cities");
-myCities = JSON.parse("myCities");
-console.log(myCities);
-//city1.textContent= myCities[0];
+citynamesEl.addEventListener("click",cityButtonHandler)
