@@ -140,10 +140,10 @@ function setCities(array){
    var getCities=JSON.parse(localStorage.getItem("cities"));
    if(getCities === null) getCities = [];
     var allCities = getCities.concat(array);
-    var filteredcities=allCities.filter(e => e !== array);
+    //var filteredcities=allCities.filter(e => e !== array);
 
-    console.log(filteredcities);
-    localStorage.setItem("cities",JSON.stringify(filteredcities));
+    //console.log(filteredcities);
+    localStorage.setItem("cities",JSON.stringify(allCities));
 }
 
 var formSubmitHandler = function(event) {
@@ -163,4 +163,7 @@ var formSubmitHandler = function(event) {
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
 city1.setAttribute("style","display:block");
-city1.textContent= "Red";
+var myCities = localStorage.getItem("cities");
+myCities = JSON.parse("myCities");
+console.log(myCities);
+//city1.textContent= myCities[0];
