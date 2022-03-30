@@ -6,6 +6,7 @@ var currentTempEl=document.querySelector("#currenttemp");
 var currentWindEl=document.querySelector("#currentwind");
 var currentHumidityEl=document.querySelector("#currenthumidity");
 var currentUVIEl=document.querySelector("#currentuvi");
+var currUVIEl=document.querySelector("#curruvi");
 
 var day1DateEl=document.querySelector("#day1date");
 var day1ImgEl=document.querySelector("#day1img");
@@ -67,7 +68,8 @@ fetch(apiUrl).then(function(response){
                   currentTempEl.innerHTML="Temp: "+data.current.temp+"&#8457";
                   currentWindEl.textContent="Wind: "+data.current.wind_speed+" MPH";
                   currentHumidityEl.textContent="Humidity: "+data.current.humidity+" %";
-                  currentUVIEl.textContent=data.current.uvi;
+                  currentUVIEl.textContent="UV Index: "+data.current.uvi;
+                  //document.querySelector("#uvi").setAttribute("style","display:flex;");
                   if(data.current.uvi < 3){
                     currentUVIEl.classList.add("btn-success");
                   }
@@ -126,9 +128,17 @@ fetch(apiUrl).then(function(response){
 
         alert("Error");
     }
+    setCities(city);
 });
 
 };
+
+function setCities(array){
+   var getCities=JSON.parse(localStorage.getItem("cities"));
+   if(getCities === null) getCities = [];
+    var allCities = getCities.concat(array);
+     localStorage.setItem("cities",JSON.stringify(allCities));
+}
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
