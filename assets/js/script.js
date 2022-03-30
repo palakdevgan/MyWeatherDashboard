@@ -61,7 +61,7 @@ fetch(apiUrl).then(function(response){
         response.json().then(function(data){
                   var today = moment.unix(data.current.dt).format("MM/DD/YYYY");
                   currentH1El.textContent=(city[0].toUpperCase() + city.substring(1))+" ("+today+")";
-                  currentImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.current.weather[0].icon+".png");
+                  currentImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.current.weather[0].icon+".png");
                   currentImgEl.setAttribute("style","width:50px;height:50px");
                   document.querySelector(".currenttitle").setAttribute("style","display:flex;align-items:center");
                   currentTempEl.innerHTML="Temp: "+data.current.temp+"&#8457";
@@ -81,7 +81,7 @@ fetch(apiUrl).then(function(response){
                 
                   var day1 = moment.unix(data.daily[1].dt).format("MM/DD/YYYY");
                   day1DateEl.textContent=day1;
-                  day1ImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.daily[1].weather[0].icon+".png");
+                  day1ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[1].weather[0].icon+".png");
                   day1ImgEl.setAttribute("style","width=60px;height=60px");
                   day1TempEl.innerHTML="Temp: "+data.daily[1].temp.day+"&#8457";
                   day1WindEl.textContent="Wind: "+data.daily[1].wind_speed+" MPH";
@@ -89,7 +89,7 @@ fetch(apiUrl).then(function(response){
 
                   var day2 = moment.unix(data.daily[2].dt).format("MM/DD/YYYY");
                   day2DateEl.textContent=day2;
-                  day2ImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.daily[2].weather[0].icon+".png");
+                  day2ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[2].weather[0].icon+".png");
                   day2ImgEl.setAttribute("style","width=60px;height=60px");
                   day2TempEl.innerHTML="Temp: "+data.daily[2].temp.day+"&#8457";
                   day2WindEl.textContent="Wind: "+data.daily[2].wind_speed+" MPH";
@@ -97,7 +97,7 @@ fetch(apiUrl).then(function(response){
 
                   var day3 = moment.unix(data.daily[3].dt).format("MM/DD/YYYY");
                   day3DateEl.textContent=day3;
-                  day3ImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.daily[3].weather[0].icon+".png");
+                  day3ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[3].weather[0].icon+".png");
                   day3ImgEl.setAttribute("style","width=60px;height=60px");
                   day3TempEl.innerHTML="Temp: "+data.daily[3].temp.day+"&#8457";
                   day3WindEl.textContent="Wind: "+data.daily[3].wind_speed+" MPH";
@@ -105,7 +105,7 @@ fetch(apiUrl).then(function(response){
 
                   var day4 = moment.unix(data.daily[4].dt).format("MM/DD/YYYY");
                   day4DateEl.textContent=day4;
-                  day4ImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.daily[4].weather[0].icon+".png");
+                  day4ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[4].weather[0].icon+".png");
                   day4ImgEl.setAttribute("style","width=60px;height=60px");
                   day4TempEl.innerHTML="Temp: "+data.daily[4].temp.day+"&#8457";
                   day4WindEl.textContent="Wind: "+data.daily[4].wind_speed+" MPH";
@@ -113,7 +113,7 @@ fetch(apiUrl).then(function(response){
 
                   var day5 = moment.unix(data.daily[5].dt).format("MM/DD/YYYY");
                   day5DateEl.textContent=day5;
-                  day5ImgEl.setAttribute("src","http://openweathermap.org/img/wn/"+data.daily[5].weather[0].icon+".png");
+                  day5ImgEl.setAttribute("src","https://openweathermap.org/img/wn/"+data.daily[5].weather[0].icon+".png");
                   day5ImgEl.setAttribute("style","width=60px;height=60px");
                   day5TempEl.innerHTML="Temp: "+data.daily[5].temp.day+"&#8457";
                   day5WindEl.textContent="Wind: "+data.daily[5].wind_speed+" MPH";
