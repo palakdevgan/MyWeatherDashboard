@@ -47,7 +47,18 @@ var apiUrl="https://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=36cf5
 fetch(apiUrl).then(function(response){
     if(response.ok){
         response.json().then(function(data){
-            getWeatherData(data[0].lat,data[0].lon,data[0].name,data[0].state,data[0].country);
+            if(data.length != 0){
+                if(data[0].name.toLowerCase().includes(city.toLowerCase())){
+                    getWeatherData(data[0].lat,data[0].lon,data[0].name,data[0].state,data[0].country);
+                }
+                else{
+                    alert("Invalid City Name");
+                }
+            }
+            else{
+                alert("Invalid City Name");
+            }
+            
         });
     }
     else{
@@ -72,7 +83,11 @@ fetch(apiUrl).then(function(response){
                   currentTempEl.innerHTML="Temp: "+data.current.temp+"&#8457";
                   currentWindEl.textContent="Wind: "+data.current.wind_speed+" MPH";
                   currentHumidityEl.textContent="Humidity: "+data.current.humidity+" %";
-                  currentUVIEl.textContent="UV Index: "+data.current.uvi;
+                  currUVIEl.textContent="UV Index: ";
+                  currentUVIEl.textContent=data.current.uvi;
+                  currUVIEl.append(currentUVIEl);
+                  currentUVIEl.classList.add("p-2");
+                  currentUVIEl.classList.add("rounded");
                   //document.querySelector("#uvi").setAttribute("style","display:flex;");
                   if(data.current.uvi < 3){
                     currentUVIEl.classList.add("btn-success");
