@@ -10,7 +10,7 @@ This dashboard runs in the browser and feature dynamically updated HTML and CSS 
 * OpenWeather One Call API
 
 ## Screenshot
-
+![Screenshot](https://github.com/palakdevgan/MyWeatherDashboard/blob/main/assets/images/Screenshot.jpg?raw=true)
 
 ## Website
 https://palakdevgan.github.io/MyWeatherDashboard
