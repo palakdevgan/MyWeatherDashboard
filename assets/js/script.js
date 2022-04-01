@@ -159,6 +159,7 @@ function setCities(cityName){
        getCities.unshift(cityName);
    }
     localStorage.setItem("cities",JSON.stringify(getCities));
+    getSearchHistory();
 }
 
 var formSubmitHandler = function(event) {
@@ -169,7 +170,7 @@ var formSubmitHandler = function(event) {
     if(cityName){
         getCoordinates(cityName);
         city.value="";
-        getSearchHistory();
+        
     }
     else{
         alert("Please enter a City Name");
@@ -191,6 +192,7 @@ function getSearchHistory()  {
     var myCities = localStorage.getItem("cities");
     myCities = JSON.parse(myCities);
     if(myCities === null) myCities = [];
+    citynamesEl.replaceChildren();
     for (var i = 0; i < myCities.slice(0,8).length; i++) {
         var myBtn = document.createElement("BUTTON");
         myBtn.textContent=myCities[i];
