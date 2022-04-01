@@ -169,16 +169,12 @@ var formSubmitHandler = function(event) {
     if(cityName){
         getCoordinates(cityName);
         city.value="";
-        
+        getSearchHistory();
     }
     else{
         alert("Please enter a City Name");
     }
-    var myBtn = document.createElement("BUTTON");
-    myBtn.textContent=cityName;
-    myBtn.className="btn1";
-    myBtn.setAttribute("data-cityname",cityName);
-    citynamesEl.appendChild(myBtn);
+
   };
 
   var cityButtonHandler=function(event){
