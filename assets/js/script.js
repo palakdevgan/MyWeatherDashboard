@@ -169,10 +169,16 @@ var formSubmitHandler = function(event) {
     if(cityName){
         getCoordinates(cityName);
         city.value="";
+        
     }
     else{
         alert("Please enter a City Name");
     }
+    var myBtn = document.createElement("BUTTON");
+    myBtn.textContent=cityName;
+    myBtn.className="btn1";
+    myBtn.setAttribute("data-cityname",cityName);
+    citynamesEl.appendChild(myBtn);
   };
 
   var cityButtonHandler=function(event){
@@ -185,16 +191,20 @@ var formSubmitHandler = function(event) {
   };
 
   
-var myCities = localStorage.getItem("cities");
-myCities = JSON.parse(myCities);
-if(myCities === null) myCities = [];
-for (var i = 0; i < myCities.slice(0,8).length; i++) {
-    var myBtn = document.createElement("BUTTON");
-    myBtn.textContent=myCities[i];
-    myBtn.className="btn1";
-    myBtn.setAttribute("data-cityname",myCities[i]);
-    citynamesEl.appendChild(myBtn);
-}
+function getSearchHistory()  {
+    var myCities = localStorage.getItem("cities");
+    myCities = JSON.parse(myCities);
+    if(myCities === null) myCities = [];
+    for (var i = 0; i < myCities.slice(0,8).length; i++) {
+        var myBtn = document.createElement("BUTTON");
+        myBtn.textContent=myCities[i];
+        myBtn.className="btn1";
+        myBtn.setAttribute("data-cityname",myCities[i]);
+        citynamesEl.appendChild(myBtn);
+    }
+    
+};
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
-citynamesEl.addEventListener("click",cityButtonHandler)
+citynamesEl.addEventListener("click",cityButtonHandler);
+getSearchHistory();
