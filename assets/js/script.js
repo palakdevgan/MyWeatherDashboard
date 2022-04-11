@@ -90,12 +90,18 @@ fetch(apiUrl).then(function(response){
                   currentUVIEl.classList.add("rounded");
                   //document.querySelector("#uvi").setAttribute("style","display:flex;");
                   if(data.current.uvi < 3){
+                    currentUVIEl.classList.remove("btn-warning");
+                    currentUVIEl.classList.remove("btn-danger");
                     currentUVIEl.classList.add("btn-success");
                   }
                   else if(data.current.uvi < 7){
+                    currentUVIEl.classList.remove("btn-success");
+                    currentUVIEl.classList.remove("btn-danger");
                     currentUVIEl.classList.add("btn-warning");
                   }
                   else{
+                    currentUVIEl.classList.remove("btn-success"); 
+                    currentUVIEl.classList.remove("btn-warning");
                     currentUVIEl.classList.add("btn-danger");
                   }
 
